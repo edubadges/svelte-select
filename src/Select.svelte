@@ -359,7 +359,7 @@
       selectedValue[detail ? detail.i : selectedValue.length - 1];
 
     if (selectedValue.length === 1) {
-      selectedValue = undefined;
+      selectedValue = isMulti ? [] : undefined;
     } else {
       selectedValue = selectedValue.filter(item => {
         return item !== itemToRemove;
@@ -498,7 +498,7 @@
   }
 
   export function handleClear() {
-    selectedValue = undefined;
+    selectedValue = isMulti ? [] : undefined;
     listOpen = false;
     dispatch("clear", selectedValue);
     handleFocus();
